@@ -1,14 +1,14 @@
-from cheat import cheatsheets
-from cheat.utils import *
+from cheap import cheatsheets
+from cheap.utils import *
 import os
 
 def default_path():
     """ Returns the default cheatsheet path """
 
     # determine the default cheatsheet dir
-    default_sheets_dir = os.environ.get('DEFAULT_CHEAT_DIR') or os.path.join(os.path.expanduser('~'), '.cheat')
+    default_sheets_dir = os.environ.get('DEFAULT_CHEAP_DIR') or os.path.join(os.path.expanduser('~'), '.cheap')
 
-    # create the DEFAULT_CHEAT_DIR if it does not exist
+    # create the DEFAULT_CHEAP_DIR if it does not exist
     if not os.path.isdir(default_sheets_dir):
         try:
             # @kludge: unclear on why this is necessary
@@ -16,13 +16,13 @@ def default_path():
             os.mkdir(default_sheets_dir)
 
         except OSError:
-            die('Could not create DEFAULT_CHEAT_DIR')
+            die('Could not create DEFAULT_CHEAP_DIR')
 
-    # assert that the DEFAULT_CHEAT_DIR is readable and writable
+    # assert that the DEFAULT_CHEAP_DIR is readable and writable
     if not os.access(default_sheets_dir, os.R_OK):
-        die('The DEFAULT_CHEAT_DIR (' + default_sheets_dir +') is not readable.')
+        die('The DEFAULT_CHEAP_DIR (' + default_sheets_dir +') is not readable.')
     if not os.access(default_sheets_dir, os.W_OK):
-        die('The DEFAULT_CHEAT_DIR (' + default_sheets_dir +') is not writeable.')
+        die('The DEFAULT_CHEAP_DIR (' + default_sheets_dir +') is not writeable.')
 
     # return the default dir
     return default_sheets_dir
@@ -33,13 +33,13 @@ def get():
     cheats = {}
 
     # otherwise, scan the filesystem
-    for cheat_dir in reversed(paths()):
+    for cheapdir in reversed(paths()):
         cheats.update(
             dict([
-                (cheat, os.path.join(cheat_dir, cheat))
-                for cheat in os.listdir(cheat_dir)
-                if not cheat.startswith('.')
-                and not cheat.startswith('__')
+                (cheap, os.path.join(cheapdir, cheap))
+                for cheap in os.listdir(cheapdir)
+                if not cheap.startswith('.')
+                and not cheap.startswith('__')
             ])
         )
 
@@ -53,14 +53,14 @@ def paths():
         cheatsheets.sheets_dir()[0],
     ]
 
-    # merge the CHEATPATH paths into the sheet_paths
-    if 'CHEATPATH' in os.environ and os.environ['CHEATPATH']:
-        for path in os.environ['CHEATPATH'].split(os.pathsep):
+    # merge the CHEAPPATH paths into the sheet_paths
+    if 'CHEAPPATH' in os.environ and os.environ['CHEAPPATH']:
+        for path in os.environ['CHEAPPATH'].split(os.pathsep):
             if os.path.isdir(path):
                 sheet_paths.append(path)
 
     if not sheet_paths:
-        die('The DEFAULT_CHEAT_DIR dir does not exist or the CHEATPATH is not set.')
+        die('The DEFAULT_CHEAP_DIR dir does not exist or the CHEAPPATH is not set.')
 
     return sheet_paths
 

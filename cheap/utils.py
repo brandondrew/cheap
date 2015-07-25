@@ -7,7 +7,7 @@ def colorize(sheet_content):
     """ Colorizes cheatsheet content if so configured """
 
     # only colorize if so configured
-    if not 'CHEATCOLORS' in os.environ:
+    if not 'CHEAPCOLORS' in os.environ:
         return sheet_content
 
     try:
@@ -51,7 +51,7 @@ def prompt_yes_or_no(question):
     # Support Python 2 and 3 input
     # Default to Python 2's input()
     get_input = raw_input
- 
+
     # If this is Python 3, use input()
     if sys.version_info[:2] >= (3, 0):
         get_input = input

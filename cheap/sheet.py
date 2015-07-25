@@ -1,6 +1,6 @@
-from cheat import sheets 
-from cheat import utils
-from cheat.utils import *
+from cheap import sheets
+from cheap import utils
+from cheap.utils import *
 import os
 import shutil
 import subprocess
@@ -9,12 +9,12 @@ import subprocess
 def copy(current_sheet_path, new_sheet_path):
     """ Copies a sheet to a new path """
 
-    # attempt to copy the sheet to DEFAULT_CHEAT_DIR
+    # attempt to copy the sheet to DEFAULT_CHEAP_DIR
     try:
         shutil.copy(current_sheet_path, new_sheet_path)
 
     # fail gracefully if the cheatsheet cannot be copied. This can happen if
-    # DEFAULT_CHEAT_DIR does not exist
+    # DEFAULT_CHEAP_DIR does not exist
     except IOError:
         die ('Could not copy cheatsheet for editing.')
 

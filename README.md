@@ -1,7 +1,8 @@
 cheap
 =====
 `cheap` allows you to create and view interactive cheatsheets on the
-command-line. It was designed to help remind \*nix system administrators of
+command-line without conflicts with the original cheat by defunkt.
+It was designed to help remind \*nix system administrators of
 options for commands that they use frequently, but not frequently enough to
 remember.
 
@@ -9,10 +10,12 @@ remember.
 
 `cheap` depends only on `python` and `pip`.
 
+<!--
 PyPI status:
 
 [![Latest Version](https://pypip.in/version/cheat/badge.png)](https://pypi.python.org/pypi/cheat/)
 [![Downloads](https://pypip.in/download/cheat/badge.png)](https://pypi.python.org/pypi/cheat/)
+-->
 
 Example
 -------
@@ -24,7 +27,7 @@ Google, you may run:
 You will be presented with a cheatsheet resembling:
 
 ```
-# To extract an uncompressed archive: 
+# To extract an uncompressed archive:
 tar -xvf /path/to/foo.tar
 
 # To extract a .gz archive:
@@ -50,7 +53,7 @@ to store notes on your favorite cookie recipes, feel free.
 Installing
 ----------
 
-<!--    
+<!--
 ### Using pip ###
 
     sudo pip install cheap
@@ -58,9 +61,9 @@ Installing
 ### Using homebrew ###
 
     brew install cheap
-    
+
     -->
-    
+
 ### Manually ###
 
 First install the required python dependencies with:
@@ -149,7 +152,7 @@ Related Projects
 
 [dotfiles]:  http://dotfiles.github.io/
 [jahendrie]: https://github.com/jahendrie
-[1]:         https://github.com/lucaswerkmeister/cheats   
+[1]:         https://github.com/lucaswerkmeister/cheats
 [2]:         https://github.com/jahendrie/cheat
 [3]:         http://errtheblog.com/posts/21-cheat
 [4]:         https://github.com/chrisallenlane/cheat/pull/77
